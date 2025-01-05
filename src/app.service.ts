@@ -45,10 +45,11 @@ export class AppService {
       })
       .then((data) => {
         console.log('Success:', data); // 成功した場合のレスポンス
+        return res.status(200).send(data);
       })
       .catch((error) => {
         console.error('Error:', error); // エラー発生時のログ
+        throw new Error(error);
       });
-    return res.status(200).send(`Hello, ${request.destination}`);
   }
 }
