@@ -29,6 +29,8 @@ export class AppService {
     return 'Hello World!';
   }
   webhook(@Res() res: Response, @Body() request: Request) {
+    console.log('destination::', request.destination);
+    console.log('event::', request.events[0]);
     const body = JSON.stringify({
       user: request.destination,
     });
